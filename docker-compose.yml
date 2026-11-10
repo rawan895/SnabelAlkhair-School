@@ -1,9 +1,15 @@
-version: '3.8'
 
 services:
-  web:
-    build: .
-    container_name: snabel-alkhair-container
+  backend:
+    build: ./backend
+    container_name: snabel-backend
     ports:
-      - "8080:80"
-    restart: always
+      - "3000:3000"
+
+  frontend:
+    build: ./frontend
+    container_name: snabel-frontend
+    ports:
+      - "8000:80"
+    depends_on:
+      - backend
