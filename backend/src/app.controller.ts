@@ -16,6 +16,14 @@ export class AppController {
     return 'Snabel Alkhair School API is running!';
   }
 
+  @Get('health')
+  getHealth() {
+    return {
+      status: 'ok',
+      message: 'Backend is healthy',
+    };
+  }
+
   @Post('auth/register')
   register(@Body() body: { name: string; email: string; password: string }) {
     const { name, email, password } = body;
